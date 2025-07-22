@@ -1,4 +1,5 @@
 <script setup>
+import AppHeader from './components/AppHeader.vue'    //コンポーネントをインポート
 import { ref } from 'vue'
 
 const todos = ref([])
@@ -12,10 +13,10 @@ const addTodo = () => {
 const removeTodo = (index) => {
   todos.value.splice(index, 1)    //要素から1つ消す
 }
-
 </script>
 
 <template>
+<AppHeader color = 'red'> My ToDo </AppHeader>
 <input type="text" size="30" v-model="nweTodo">
 <button @click="addTodo()"> 追加 </button>  
 
