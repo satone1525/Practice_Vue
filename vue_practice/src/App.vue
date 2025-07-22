@@ -1,5 +1,6 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'    //コンポーネントをインポート
+import TodoList from './components/TodoList.vue'
 import { ref } from 'vue'
 
 const todos = ref([])
@@ -20,11 +21,7 @@ const removeTodo = (index) => {
 <input type="text" size="30" v-model="nweTodo">
 <button @click="addTodo()"> 追加 </button>  
 
-<ul v-if="todos.length > 0">
-  <li v-for="(todo, i) in todos" v-bind:key="i"> {{ todo }} <span @click="removeTodo(i)" style="cursor:pointer"> x </span> </li>
-
-</ul>
-<p v-else>※ToDoを追加してください</p>
+<TodoList :todos="todos" @removeTodo='removeTodo'/>
 </template>
 
 <!--　省略形　メモ 
